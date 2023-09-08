@@ -7,6 +7,7 @@
       OPTION 2: @ViewChild DECORATOR
       -- instead of passing local ref #f to (ngSubmit) event handler, use @ViewChild('f') to assign local ref to a property in app
       -- particularly useful when you need access to the form data prior to submission
+      -- see onSubmit() method in TS file
 -->
 <!-- 
   VALIDATION:
@@ -15,6 +16,12 @@
     -- ngNativeValidate: add to a control to use HTML5 validation instead, which Angular disables by default
     -- can disable the submit button by binding [disabled] property and using the form's local ref (f) to disable the button if the form's 'valid' property is false
     -- Additional References: https://angular.io/api/forms/Validators; https://angular.io/api?type=directive
+ -->
+<!-- 
+  STYLING:
+    -- Angular adds CSS classes to the form elements on the DOM based on certain property values of the form object compiled by Angular
+    -- use these selectors to dynamically style the elements based on the form state
+    -- see CSS file
  -->
 
 <div class="container">
