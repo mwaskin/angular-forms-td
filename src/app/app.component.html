@@ -13,6 +13,7 @@
     -- required: a normal HTML attribute for an input, but Angular recognizes it as a selector for the RequiredValidator directive, so it can determine validity of the input
     -- email: selector for Angular's EmailValidator directive that ensures the input is in the format of an email address
     -- ngNativeValidate: add to a control to use HTML5 validation instead, which Angular disables by default
+    -- can disable the submit button by binding [disabled] property and using the form's local ref (f) to disable the button if the form's 'valid' property is false
     -- Additional References: https://angular.io/api/forms/Validators; https://angular.io/api?type=directive
  -->
 
@@ -55,7 +56,9 @@
             <option value="teacher">Your first teacher?</option>
           </select>
         </div>
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
+          Submit
+        </button>
       </form>
     </div>
   </div>
