@@ -1,6 +1,7 @@
 <!-- NgModel DIRECTIVE:
     -- Adding the ngModel directive as an attribute registers the input with as a form control, using the value of the name attribute as its identifier
     -- Assign local references for control elements (#email) a value of 'ngModel' to tell Angular to reference the control object created by Angular, rather than the native HTML element
+    -- Use property binding with [ngModel] to assign a default value to a control
  -->
 <!-- TO RECEIVE FORM OBJECT CREATED BY ANGULAR:
       OPTION 1: PASS TO EVENT HANDLER
@@ -63,7 +64,12 @@
         </div>
         <div class="form-group">
           <label for="secret">Secret Questions</label>
-          <select id="secret" class="form-control" ngModel name="secret">
+          <select
+            id="secret"
+            class="form-control"
+            [ngModel]="defaultQuestion"
+            name="secret"
+          >
             <option value="pet">Your first Pet?</option>
             <option value="teacher">Your first teacher?</option>
           </select>
