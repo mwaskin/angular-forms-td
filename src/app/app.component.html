@@ -6,7 +6,15 @@
       -- pass the ngForm local ref as the argument to the (ngSubmit) event handler
       OPTION 2: @ViewChild DECORATOR
       -- instead of passing local ref #f to (ngSubmit) event handler, use @ViewChild('f') to assign local ref to a property in app
+      -- particularly useful when you need access to the form data prior to submission
 -->
+<!-- 
+  VALIDATION:
+    -- required: a normal HTML attribute for an input, but Angular recognizes it as a selector for the RequiredValidator directive, so it can determine validity of the input
+    -- email: selector for Angular's EmailValidator directive that ensures the input is in the format of an email address
+    -- ngNativeValidate: add to a control to use HTML5 validation instead, which Angular disables by default
+    -- Additional References: https://angular.io/api/forms/Validators; https://angular.io/api?type=directive
+ -->
 
 <div class="container">
   <div class="row">
@@ -21,6 +29,7 @@
               class="form-control"
               ngModel
               name="username"
+              required
             />
           </div>
           <button class="btn btn-default" type="button">
@@ -34,6 +43,8 @@
               class="form-control"
               ngModel
               name="email"
+              required
+              email
             />
           </div>
         </div>
