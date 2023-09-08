@@ -4,6 +4,11 @@
     -- Use property binding with [ngModel] to assign a default value to a control
     -- Use two-way property binding with [(ngModel)] to assign a default value and instantly update a value to be used somewhere as the value changes
  -->
+<!-- NgModelGroup DIRECTIVE
+    -- group related controls in the ngForm object by adding ngModelGroup attribute to a container wrapping the controls to be grouped
+    -- assign the attribute a string value representing the key in the form object values which holds the individual values for each control in the group
+    -- can use a local ref with a value of 'ngModelGroup' (to reference the object created by Angular instead of the native HTML element) to read property values of the group
+-->
 <!-- TO RECEIVE FORM OBJECT CREATED BY ANGULAR:
       OPTION 1: PASS TO EVENT HANDLER
       -- bind (ngSubmit) event from the ngSubmit directive to the <form> element
@@ -31,7 +36,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <form (ngSubmit)="onSubmit()" #f="ngForm">
-        <div id="user-data">
+        <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
           <div class="form-group">
             <label for="username">Username</label>
             <input
@@ -63,6 +68,7 @@
             >
           </div>
         </div>
+        <p *ngIf="!userData.valid && userData.touched">User Data is invalid!</p>
         <div class="form-group">
           <label for="secret">Secret Questions</label>
           <select
